@@ -52,7 +52,7 @@ const cardArray = [
     
 ];
 
-cardArray.sort(()=> 0.5 - Math.random);
+cardArray.sort(()=> 0.5 - Math.random());
 
 const grid = document.querySelector('.grid');
 const resultDisplay = document.querySelector('#result');
@@ -71,9 +71,9 @@ for(let i=0; i <cardArray.length; i++){
 }
 }
 function checkForMatch(){
-    var cards = document.querySelector('img');
-    const optionOneId = cardsChosen[0];
-    const optionTwoId = cardsChosen[1];
+    var cards = document.querySelectorAll('img');
+    const optionOneId = cardsChosenId[0];
+    const optionTwoId = cardsChosenId[1];
     if(cardsChosen[0]===cardsChosen[1]){
         alert('Hurray you found a match');
         cards[optionOneId].setAttribute('src', 'images/blank.png');
@@ -81,8 +81,8 @@ function checkForMatch(){
         cardsWon.push(cardsChosen);
 
     }else{
-        cards[optionOneId].setAttribute('src', 'cover.png');
-        cards[optionTwoId].setAttribute('src', 'cover.png');
+        cards[optionOneId].setAttribute('src', 'images/cover.png');
+        cards[optionTwoId].setAttribute('src', 'images/cover.png');
         alert('Oops, Try Again!');
     }
     cardsChosen = [];
@@ -100,7 +100,7 @@ function flipCard(){
     cardsChosenId.push(cardId);
     this.setAttribute('src', cardArray[cardId].img);
     if(cardsChosen.length === 2){
-        setTimeout(checkForMatch, 400);
+        setTimeout(checkForMatch, 800);
     }
 
 }
